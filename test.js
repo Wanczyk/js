@@ -1,6 +1,5 @@
 <script>
-    function onLoadHandler() {
+    document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("jenkins-name-icon").remove()
-    }
-    window.addEventListener('load', onLoadHandler);  
+    });
 </script>
