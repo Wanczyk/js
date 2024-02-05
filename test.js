@@ -1,1 +1,3 @@
-document.getElementById("jenkins-name-icon").disabled = true;
+<script>
+    document.getElementById("jenkins-name-icon").disabled = true;
+</script>
