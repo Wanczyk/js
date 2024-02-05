@@ -1,5 +1,8 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        document.getElementById("jenkins-name-icon").remove()
+        alert("It's loaded!");
+
+        document.getElementById("jenkins-name-icon").remove();
+
     });
 </script>
