@@ -1,11 +1,25 @@
-function waitForElement(xpath, callback, maxAttempts = 10, currentAttempt = 0) {
+function waitForElementByXpath(xpath, callback, maxAttempts = 10, currentAttempt = 0) {
     var element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
 
     if (element) {
         callback(element);
     } else if (currentAttempt < maxAttempts) {
         setTimeout(function() {
-            waitForElement(xpath, callback, maxAttempts, currentAttempt + 1);
+            waitForElementByXpath(xpath, callback, maxAttempts, currentAttempt + 1);
+        }, 100);
+    } else {
+        console.log("Element not found after " + maxAttempts + " attempts.");
+    }
+}
+
+function waitForElementById(id, callback, maxAttempts = 10, currentAttempt = 0) {
+    var element = document.getElementById(id);
+
+    if (element) {
+        callback(element);
+    } else if (currentAttempt < maxAttempts) {
+        setTimeout(function() {
+            waitForElementById(xpath, callback, maxAttempts, currentAttempt + 1);
         }, 100);
     } else {
         console.log("Element not found after " + maxAttempts + " attempts.");
@@ -13,37 +27,43 @@ function waitForElement(xpath, callback, maxAttempts = 10, currentAttempt = 0) {
 }
 
 
-function changeInnerHTML(xpath, new_value) {
-    waitForElement(xpath, function(element) {
+function changeInnerHTMLbyXpath(xpath, new_value) {
+    waitForElementByXpath(xpath, function(element) {
+        element.innerHTML = new_value
+    });
+}
+
+
+function changeInnerHTMLbyId(id, new_value) {
+    waitForElementById(id, function(element) {
         element.innerHTML = new_value
     });
 }
 
 
 function removeElement(xpath) {
-    waitForElement(xpath, function(element) {
+    waitForElementByXpath(xpath, function(element) {
         element.remove()
     });
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-
-    changeInnerHTML('//*[@id="page-header"]/div[1]/a', '<a href="/job/RTS/job/main/" class="page-header__brand-link" />')
     
-    changeInnerHTML("//th[contains(text(),'Declarative: Agent Setup')]", "Test environment setup")
-    changeInnerHTML("//th[contains(text(),'Checkout')]", "Prepare setup")
-    changeInnerHTML("//th[contains(text(),'Initial test stage')]", "Test validation")
-    changeInnerHTML("//th[contains(text(),'Declarative: Post Actions')]", "Clean up")
-    changeInnerHTML('//*[@id="pipeline-box"]/h2', "Run a pipeline")
-    changeInnerHTML('//*[@id="breadcrumbBar"]', '<ol class="jenkins-breadcrumbs__list" id="breadcrumbs"><li class="jenkins-breadcrumbs__list-item">R-PHY Test Suite</li></ol>')
-    changeInnerHTML('//*[@id="pipeline-box"]/div/div/table/tbody[1]/tr/td[1]/div', 'Change the nam')
-    changeInnerHTML('//*[@id="tasks"]/div[3]/span/a/span[2]', 'Run the test')
+    changeInnerHTMLbyXpath("//th[contains(text(),'Declarative: Agent Setup')]", "Test environment setup")
+    changeInnerHTMLbyXpath("//th[contains(text(),'Checkout')]", "Prepare setup")
+    changeInnerHTMLbyXpath("//th[contains(text(),'Initial test stage')]", "Test validation")
+    changeInnerHTMLbyXpath("//th[contains(text(),'Declarative: Post Actions')]", "Clean up")
+    changeInnerHTMLbyId("breadcrumbBar", '<ol class="jenkins-breadcrumbs__list" id="breadcrumbs"><li class="jenkins-breadcrumbs__list-item">R-PHY Test Suite</li></ol>')
 
-    removeElement('//*[@id="tasks"]/div[2]')
-    removeElement('//*[@id="tasks"]/div[3]')
-    removeElement('//*[@id="tasks"]/div[3]')
-    removeElement('//*[@id="tasks"]/div[4]')
-    removeElement('//*[@id="buildHistory"]/div[1]')
-    removeElement('//*[@id="buildHistory"]/div[2]')
+    changeInnerHTMLbyXpath('//*[@id="pipeline-box"]/h2[contains(text(), "Stage View")]', "Run a pipeline")
+    changeInnerHTMLbyXpath('//*[@id="pipeline-box"]/div/div/table/tbody[1]/tr/td[1]/div[contains(text(), "Average stage times:")]', 'Change the name')
+    changeInnerHTMLbyXpath("//div[contains(@class, 'task') and contains(.//span, 'Build with Parameters')]//span[@class='task-link-text']", 'Run the test')
+
+    removeElement("//div[contains(@class, 'task') and contains(.//span, 'Changes')]")
+    removeElement("//div[contains(@class, 'task') and contains(.//span, 'View Configuration')]")
+    removeElement("//div[contains(@class, 'task') and contains(.//span, 'Full Stage View')]")
+    removeElement("//div[contains(@class, 'task') and contains(.//span, 'Pipeline Syntax')]")
+    removeElement("//div[contains(@class, 'row') and contains(.//span, 'Build History')]")
+    removeElement("//div[contains(@class, 'row') and contains(.//span, 'Atom feed for all')]")
 
 });
