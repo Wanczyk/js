@@ -58,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
     changeInnerHTMLbyXpath('//*[@id="pipeline-box"]/h2[contains(text(), "Stage View")]', "Run a pipeline")
     changeInnerHTMLbyXpath('//*[@id="pipeline-box"]/div/div/table/tbody[1]/tr/td[1]/div[contains(text(), "Average stage times:")]', 'Change the name')
     changeInnerHTMLbyXpath("//div[contains(@class, 'task') and contains(.//span, 'Build with Parameters')]//span[@class='task-link-text']", 'Run the test')
+    changeInnerHTMLbyXpath("//div[contains(@class, 'task') and contains(.//span, 'Gitea')]//span[@class='task-link-text']", 'Config repo')
 
     removeElement("//div[contains(@class, 'task') and contains(.//span, 'Changes')]")
     removeElement("//div[contains(@class, 'task') and contains(.//span, 'View Configuration')]")
