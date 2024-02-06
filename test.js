@@ -66,5 +66,10 @@ document.addEventListener("DOMContentLoaded", function() {
     removeElement("//div[contains(@class, 'task') and contains(.//span, 'Pipeline Syntax')]")
     removeElement("//div[contains(@class, 'row') and contains(.//span, 'Build History')]")
     removeElement("//div[contains(@class, 'row') and contains(.//span, 'Atom feed for all')]")
+    
+    removeElement("//h1[contains(@class, 'job-index-headline page-headline') and contains(text(), 'Pipeline main')]")
+    removeElement("//div[@id='main-panel']/text()")
+
+    removeElement("//div[@id='main-panel']//table[contains(.//text(), 'Last Successful Artifacts')]")
 
 });
