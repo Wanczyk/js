@@ -76,4 +76,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     removeElement("//div[@id='main-panel']//table[contains(.//text(), 'Last Successful Artifacts')]")
 
+    removeElement("//h2[contains(@class, 'permalinks-header') and contains(.//text(), 'Permalinks')]")
+    removeElement("//ul[@class='permalinks-list']")
+
 });
