@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
     changeInnerHTMLbyXpath("//th[contains(text(),'Checkout')]", "Prepare setup")
     changeInnerHTMLbyXpath("//th[contains(text(),'Initial test stage')]", "Test validation")
     changeInnerHTMLbyXpath("//th[contains(text(),'Declarative: Post Actions')]", "Clean up")
-    changeInnerHTMLbyId("breadcrumbBar", '<ol class="jenkins-breadcrumbs__list" id="breadcrumbs"><li class="jenkins-breadcrumbs__list-item">R-PHY Test Suite</li></ol>')
+    changeInnerHTMLbyId("breadcrumbBar", '<ol class="jenkins-breadcrumbs__list" id="breadcrumbs"><li class="jenkins-breadcrumbs__list-item"><a href="/job/RTS/job/main/">R-PHY Test Suite</a></li></ol>')
 
     changeInnerHTMLbyXpath('//*[@id="pipeline-box"]/h2[contains(text(), "Stage View")]', "Run a pipeline")
     changeInnerHTMLbyXpath('//*[@id="pipeline-box"]/div/div/table/tbody[1]/tr/td[1]/div[contains(text(), "Average stage times:")]', 'Change the name')
