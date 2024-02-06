@@ -48,6 +48,10 @@ function removeElement(xpath) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
+
+    waitForElementById("side-panel", function(element) {
+        element.style.width = "300px";
+    });
     
     changeInnerHTMLbyXpath("//th[contains(text(),'Declarative: Agent Setup')]", "Test environment setup")
     changeInnerHTMLbyXpath("//th[contains(text(),'Checkout')]", "Prepare setup")
