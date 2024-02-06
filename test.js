@@ -28,6 +28,8 @@ function removeElement(xpath) {
 
 document.addEventListener("DOMContentLoaded", function() {
 
+    changeInnerHTML('//*[@id="page-header"]/div[1]/a', '<a href="/job/RTS/job/main/" class="page-header__brand-link" />')
+    
     changeInnerHTML("//th[contains(text(),'Declarative: Agent Setup')]", "Test environment setup")
     changeInnerHTML("//th[contains(text(),'Checkout')]", "Prepare setup")
     changeInnerHTML("//th[contains(text(),'Initial test stage')]", "Test validation")
