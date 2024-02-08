@@ -1,0 +1,120 @@
+:root {
+    --font-family-sans: Arial;
+    --font-family-mono: Arial;
+}
+
+body {
+    font-family: Arial;
+}
+
+.logo img {
+    content:url("logo.png");
+}
+
+#jenkins-name-icon {
+    display: none;
+}
+        
+.logo:after {
+    content: 'Falcon V Systems';
+    font-weight: normal;
+    font-size: 36px;
+    font-family: Arial !important;
+    color: #00d664;
+    margin-left: 10px;
+}
+
+#breadcrumbBar * {
+    color: #00d664 !important;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+
+#tasks .task-link-wrapper:hover *{
+    color: #00d664 !important;
+}
+
+.badge {
+    font-size: 26px;
+    color: #fff
+}
+
+.jobsTable .FAILED .jobName .badge {
+    background-color: #f34940 !important;
+}
+
+.jobsTable .SUCCESS .jobName .badge {
+    background-color: #14d77d !important;
+}
+
+.stackedBarChart .stackedBarChart.inner .bar {
+    background: #dbdbdb !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+
+.stackedBarChart .stackedBarChart.inner .bar.highlight {
+    background: #aaaaaa !important;
+}
+
+.alert .alert-info {
+    background-color: #fafafa !important;
+    border-color: #b2b2b2;
+    border-width: 3px;
+}
+
+.cbwf-widget .alert {
+    border-width: 2px !important;
+}
+
+.cbwf-build-artifacts table .artifact{
+    font-size: 24px !important;
+    font-weight: normal !important;
+}
+
+.cbwf-build-artifacts a {
+    font-weight: normal !important;
+}
+
+.cbwf-build-artifacts table .artifact:hover *{
+    color: #00d664 !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+}
+
+
+.stage-cell .stage-cell-0 {
+    border-width: 3px !important;
+}
+
+.jobsTable .stage-cell.FAILED .stage-wrapper {
+    background-color: #f9e5e1 !important;
+    color: #f34940 !important;
+}
+
+.jobsTable .stage-cell.FAILED .stage-wrapper .duration{
+    box-shadow: 0 0 0 2px #f34940 !important;
+    color: #f34940 !important;
+    font-weight: normal;
+}
+
+#pipeline-box .table-box tr.FAILED .FAILED .duration {
+    background: none !important;
+}
+
+.jobsTable .stage-cell.SUCCESS .stage-wrapper {
+    background-color: #edfcf9 !important;
+    color: #14d77d !important;
+}
+
+.jobsTable .stage-cell.SUCCESS .stage-wrapper .duration {
+    color: #14d77d !important;
+    box-shadow: 0 0 0 2px #14d77d !important;
+    font-weight: bold;
+}
+
+.jobsTable .stage-cell.SUCCESS .stage-wrapper .duration span{
+    color: #14d77d !important;
+}
+
